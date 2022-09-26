@@ -1,9 +1,21 @@
-import React from "react";
+import Header from "../../components/Header/Header";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage";
+import { goToLoginPage } from "../../routes/coordinator";
+import SignUpForm from "./SignUpForm"
+import { PageContainer, SignUpPageContainer } from "./styled"
 
-const SignUpPage = () => {
+function SignUpPage({rightButtonText, setRightButtonText}) {
+    useUnprotectedPage()
+    
     return (
-        <h1>Sign Up Page</h1>
-    )
+        <PageContainer>
+            <SignUpPageContainer>
+                <Header rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}/>
+                <h1>Olá, boas vindas ao LabEddit ;)</h1>
+                <SignUpForm rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}/>
+            </SignUpPageContainer>
+        </PageContainer>
+    );
 }
 
-export default SignUpPage
+export default SignUpPage;
